@@ -216,7 +216,6 @@ button:-webkit-details-marker {
     align-items: center;
     background: linear-gradient(282deg, #b8e4ff 0%, #2b90d8);
     width: 80vw;
-    max-width: 80vw;
     height: max-content;
     position: absolute; 
     bottom: 0;
@@ -228,7 +227,7 @@ button:-webkit-details-marker {
 
 @media only screen and (max-width: 761px) {
     .notification_container {
-        width: 100%;
+        width: 100vw;
     }
 }
 
