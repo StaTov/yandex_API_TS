@@ -226,6 +226,11 @@ button:-webkit-details-marker {
     transition: right 1s;
 }
 
+@media only screen and (max-width: 761px) {
+    .notification_container {
+        width: 100%;
+    }
+}
 
 .note-hidden {
     transition: right 1s ;
