@@ -3,9 +3,9 @@ export const yandexInit = (setToken) => {
     return window.YaAuthSuggest.init({
         client_id: '6aca6dec88d8442ea6c17e9604731b74',
         response_type: 'token',
-        redirect_uri: 'http://localhost:3000/empty'
+        redirect_uri: 'https://beamish-frangipane-5392d4.netlify.app/empty'
     },
-    'http://localhost:3000/', {
+    'https://beamish-frangipane-5392d4.netlify.app/', {
         view: 'button',
         parentId: 'yaBtn',
         buttonView: 'main',
@@ -30,7 +30,7 @@ export const yandexInit = (setToken) => {
 
 
 export function yandexToken() {
-    window.YaSendSuggestToken('http://localhost:3000/', {
+    window.YaSendSuggestToken('https://beamish-frangipane-5392d4.netlify.app/', {
         'kek': true
     })
     
