@@ -19,18 +19,8 @@ const Nav = () => {
     return (
         <div className='container'>
             <nav>
-                <div className='navBox-left'>
-                    {
-                        store.token &&
-                        <div>
+                <div className='navBox'>
 
-                            <div className='loadText'>свободно {store.getFreeSpace()} гб из {store.totalSpace} гб</div>
-                            <div className='load'>
-                                <div style={{ width: `${store.getLoaderPercent()}%` }}> </div>
-                            </div>
-
-                        </div>
-                    }
                 </div>
                 <div className='navBox'>Yandex Disk API</div>
                 <div className='navBox-right'>
@@ -44,6 +34,19 @@ const Nav = () => {
             </nav>
             <div className='navbar-info'>
                 <div></div>
+                {
+                    store.token &&
+                    <div className='diskspace-info'>
+                        <div className='diskspace-info-box'>
+                            <i className='fa fa-hdd-o'></i>
+                            <div className='loadText'>свободно {store.getFreeSpace()} гб из {store.totalSpace} гб</div>
+                        </div>
+                        <div className='load'>
+                            <div style={{ width: `${store.getLoaderPercent()}%` }}> </div>
+                        </div>
+                    </div>
+                }
+
 
             </div>
             <Outlet />

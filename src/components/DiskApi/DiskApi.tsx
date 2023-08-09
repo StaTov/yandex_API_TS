@@ -12,17 +12,6 @@ const DiskApi = () => {
 
     const aRef = useRef<HTMLInputElement>(null)
     const files = store.fileList ? Array.from(store.fileList) : []
-
-    // const a = async () => {
-    //     try {
-    //   let res = await getDiskInfo()
-    //   console.log(res)
-    //     } catch (error) {
-    //         setNote(error.message)
-    //     }
-    // }
-
-
     const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (!e.target.files) {
             return

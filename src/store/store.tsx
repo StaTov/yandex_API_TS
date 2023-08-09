@@ -8,7 +8,7 @@ export default class Store {
     fileList: FileList | File[] | null = null
     arrayFileList: File[] | [] = []
     message: string | null | JSX.Element = null
-    styleNote = ''
+    styleNote = false
     userName = ''
     totalSpace = 0
     usedSpace = 0
@@ -31,12 +31,13 @@ export default class Store {
 
     setMessage = (message: JSX.Element | string | null): void => {
         this.message = message
+        this.styleNote = true
     }
-    setStyleNote = (style: string): void => {
-        this.styleNote = style
+    setStyleNote = (value: boolean): void => {
+        this.styleNote = value
     }
     getFreeSpace = (): number => {
-        return this.totalSpace - this.usedSpace
+        return Number((this.totalSpace - this.usedSpace).toFixed(2))
     }
 
     setClearUserInfo = (): void => {

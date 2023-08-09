@@ -1,4 +1,3 @@
-
 import { useContext } from 'react'
 import { observer } from 'mobx-react'
 import { Context } from '../..'
@@ -6,17 +5,30 @@ import { Context } from '../..'
 const Notification = () => {
 
     const store = useContext(Context)
-    const style =  store.message ? 'notification_container' :'notification_container note-hidden'
 
     const handleClick = () => {
-        store.setMessage('')
+        store.setStyleNote(false)
     }
+
+    const style = store.styleNote
+        ? 'notification_container'
+        : 'notification_container note-hidden'
+
+
+    if (store.styleNote) {
+        setTimeout(() => store.setStyleNote(false), 7000)
+    }
+
 
     return (
         <div className={style}>
-            <span className="notification_item">{store.message}</span>
-            <span role="button" className="notificationCloseButton" onClick={handleClick} >&#10006;</span>
-        </div>
+            <div className='note-bar'></div>
+            <span className="notification_body">{store.message}</span>
+            <span role="button"
+                className="notificationCloseButton"
+                onClick={handleClick} >&#10006;
+            </span>
+        </div >
     )
 }
 
