@@ -27,9 +27,10 @@ const getPreviewImg = async (url: string) => {
     if (!token) {
         throw new Error('Недостаточно прав. Необходима авторизация.')
     }
+    console.log(111)
     const response = await fetch(url, {
         headers: {
-            Accept: 'image/*',
+            Accept: '*/*',
             Authorization: `OAuth ${token}`
         }
     })
