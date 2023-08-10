@@ -11,7 +11,7 @@ const FileItem = ({ data }: Props) => {
 
     return (
         <div className='file_item'>
-            <div><img src={iconUrl} referrerPolicy='no-referrer' alt=""  /></div>
+            <div><img src={iconUrl} referrerPolicy='no-referrer' alt=""></img></div>
             <div>{data.name}</div>
             <div>{data.size}</div>
         </div>
