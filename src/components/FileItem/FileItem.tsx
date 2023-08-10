@@ -17,8 +17,8 @@ const FileItem = ({ data }: Props) => {
         if ('preview' in data) {
             console.log('dp', data.preview)
             file_service.getPreviewImg(data.preview)
-                .then(result => setUrl(result))
-                .catch(error => console.log(error))
+                .then(result =>{console.log(result); setUrl(result)})
+                .catch(error => console.log('arror', error))
         }
     }, [])
 
