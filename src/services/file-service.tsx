@@ -3,7 +3,28 @@
 const baseURL = 'https://cloud-api.yandex.net/v1'
 
 
-export const getDiskInfo = async () => {
+const getAllFilesMeta = async () => {
+    const token = localStorage.getItem('access_token')
+    if (!token) {
+        throw new Error('Недостаточно прав. Необходима авторизация.')
+    }
+    const response = await fetch(`${baseURL}/disk/resources/files`, {
+        headers: {
+            Accept: 'application/json',
+            Authorization: `OAuth ${token}`
+        }
+    })
+    if (response.ok) {
+        const data = await response.json()
+        return data
+    }
+    throw new Error(`ошибка сети + ${response.status}`)
+}
+   
+
+
+
+const getDiskInfo = async () => {
     const token = localStorage.getItem('access_token')
     if (!token) {
         throw new Error('Недостаточно прав. Необходима авторизация.')
@@ -41,9 +62,10 @@ const uploadAll = async (files: File[]) => {
             }
         }
         )))
+    // console.log('responseURlr', responsesUrl)
     const result = await Promise.all(responsesUrl.map(r => r.json()))
     const existFiles = result.filter(f => f.message)
-
+    //  console.log('result', result)
     if (existFiles.length > 0) {
         return existFiles
     }
@@ -58,8 +80,9 @@ const uploadAll = async (files: File[]) => {
             },
             body: f,
         })))
+
 }
 
-const file_service = { uploadAll, getDiskInfo }
+const file_service = { uploadAll, getDiskInfo, getAllFilesMeta }
 
 export default file_service

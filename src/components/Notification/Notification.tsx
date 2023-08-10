@@ -24,10 +24,12 @@ const Notification = () => {
         <div className={style}>
             <div className='note-bar'></div>
             <span className="notification_body">{store.message}</span>
-            <span role="button"
-                className="notificationCloseButton"
-                onClick={handleClick} >&#10006;
-            </span>
+            <div className='note-btn-wrapper'>
+                <div role="button"
+                    className="notificationCloseButton"
+                    onClick={handleClick} >&#10006;</div>
+            </div>
+
         </div >
     )
 }

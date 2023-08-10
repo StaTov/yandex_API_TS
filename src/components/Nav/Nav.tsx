@@ -46,8 +46,6 @@ const Nav = () => {
                         </div>
                     </div>
                 }
-
-
             </div>
             <Outlet />
         </div >

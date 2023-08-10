@@ -1,4 +1,3 @@
-
 .container {
     position: relative;
     display: flex;
@@ -83,8 +82,9 @@ nav {
     margin: 10px;
     background-color: #fffffff5;
     border-radius: 3px;
-    transition: background-color 0.3s ;
+    transition: background-color 0.3s;
 }
+
 .diskspace-info:hover .diskspace-info-box {
     width: 200px;
 }
@@ -217,7 +217,7 @@ button:-webkit-details-marker {
     background: linear-gradient(282deg, #b8e4ff 0%, #2b90d8);
     width: 80vw;
     height: max-content;
-    position: absolute; 
+    position: absolute;
     bottom: 0;
     right: 0;
     color: #fff;
@@ -232,13 +232,13 @@ button:-webkit-details-marker {
 }
 
 .note-hidden {
-    transition: right 1s ;
+    transition: right 1s;
     right: -1400px;
 
 }
 
 .note-bar {
-    align-self:stretch;
+    align-self: stretch;
     padding: 5px;
     background-color: #fff;
 }
@@ -249,20 +249,26 @@ button:-webkit-details-marker {
     color: rgb(8, 43, 65);
 }
 
+
 .notificationCloseButton {
-    align-self: stretch;
-    padding: 20px;
+    cursor: pointer;
+    text-align: center;
+    margin-right: 30px;
+    padding: 4px 8px;
+    border-radius: 50%;
+    background-color: #ffffff00;
+    width: 32px;
+    height: 30px;   
     font-weight: 900;
     font-size: 15px;
-    display: block;
-    color: rgb(15, 76, 114);
-    cursor: pointer;
-    transition: 0.3s;
+    color: rgb(8, 37, 55);   
+    transition: background-color 0.4s ease; 
 }
 
 
 .notificationCloseButton:hover {
-    color: rgb(99, 185, 198);
+    background-color: #ffffff9c;
+
 }
 
 

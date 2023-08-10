@@ -6,6 +6,7 @@ export default class Store {
     token: string | null = null
     isLoading = false
     fileList: FileList | File[] | null = null
+    fileListMeta = {}
     arrayFileList: File[] | [] = []
     message: string | null | JSX.Element = null
     styleNote = false
@@ -56,11 +57,36 @@ export default class Store {
         }
     }
 
-    async setDiskInfo() {
+    setUserName = (name: string) => {
+        this.userName = name
+    }
+
+    setTotalSpace = (value: string) => {
+        this.totalSpace = Math.round(Number(value) / 1e9)
+    }
+
+    setUsedSpace = (value: string) => {
+        this.usedSpace = Number((Number(value) / 1e9).toFixed(2))
+    }
+
+    setFileListMeta = (data: []) => {
+        console.log('data', data)
+        this.fileListMeta = data
+        console.log('js', data)
+    }
+
+    async getFileListMeta() {
+        const data = await file_service.getAllFilesMeta()
+        this.setFileListMeta(data)
+
+    }
+
+    async getDiskInfo() {
         const data = await file_service.getDiskInfo()
-        this.userName = data.user.display_name
-        this.totalSpace = Math.round(data.total_space / 1e9)
-        this.usedSpace = Number((data.used_space / 1e9).toFixed(2))
+
+        this.setUserName(data.user.display_name)
+        this.setTotalSpace(data.total_space)
+        this.setUsedSpace(data.used_space)
     }
 
     async uploadAllFiles(files: File[]) {
@@ -96,6 +122,10 @@ export default class Store {
         }
     }
 
+    async init() {
+        await this.getDiskInfo()
+        await this.getFileListMeta()
+    }
 
 
 

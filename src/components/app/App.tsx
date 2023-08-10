@@ -7,23 +7,25 @@ import Auth from '../Auth/Auth'
 import Nav from '../Nav/Nav'
 import EmptyPage from '../EmptyPage/EmptyPage'
 import DiskApi from '../DiskApi/DiskApi'
+import Files from '../Files/Files'
 
 const App = () => {
 
     const store = useContext(Context)
- 
+
     useEffect(() => {
         if (!store.token) {
             store.setToken(localStorage.getItem('access_token'))
             return
         }
-        store.setDiskInfo()
+        store.init()
     }, [store.token])
 
     return (
         <Routes>
             <Route path='/' element={<Nav />} >
                 <Route path='/' element={<DiskApi />} />
+                <Route path='/files' element={<Files/>} />
                 <Route path='/auth' element={<Auth />} />
                 <Route path='/empty' element={<EmptyPage />} />
                 <Route path='*' element={<Navigate to='/' replace={true} />} />
