@@ -258,11 +258,11 @@ button:-webkit-details-marker {
     border-radius: 50%;
     background-color: #ffffff00;
     width: 32px;
-    height: 30px;   
+    height: 30px;
     font-weight: 900;
     font-size: 15px;
-    color: rgb(8, 37, 55);   
-    transition: background-color 0.4s ease; 
+    color: rgb(8, 37, 55);
+    transition: background-color 0.4s ease;
 }
 
 
@@ -447,4 +447,17 @@ button:-webkit-details-marker {
         -webkit-transform: rotate(359deg);
         transform: rotate(359deg);
     }
+}
+
+.container_files {
+    background-color: white;
+    padding: 30px;
+    width: 70vw;
+}
+
+.file_item {
+    display: flex;
+    flex-direction: column;
+
+
 }
