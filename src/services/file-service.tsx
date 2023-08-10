@@ -20,8 +20,26 @@ const getAllFilesMeta = async () => {
     }
     throw new Error(`ошибка сети + ${response.status}`)
 }
-   
 
+const getPreviewImg = async (url: string) => {
+    const token = localStorage.getItem('access_token')
+    if (!token) {
+        throw new Error('Недостаточно прав. Необходима авторизация.')
+    }
+    const response = await fetch(url, {
+        headers: {
+            Accept: '*/*',
+            Authorization: `OAuth ${token}`
+        }
+    })
+
+    if (response.ok) {
+        const blob = await response.blob()
+        return URL.createObjectURL(blob)
+    }
+    throw new Error('Неизвестная ошибка')
+
+}
 
 
 const getDiskInfo = async () => {
@@ -83,6 +101,6 @@ const uploadAll = async (files: File[]) => {
 
 }
 
-const file_service = { uploadAll, getDiskInfo, getAllFilesMeta }
+const file_service = { uploadAll, getDiskInfo, getAllFilesMeta, getPreviewImg }
 
 export default file_service
