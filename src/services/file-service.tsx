@@ -32,6 +32,7 @@ const getPreviewImg = async (url: string) => {
     console.log('tok', token)
     const response = await fetch(url, {
         headers: {
+            Accept: 'application/octet-stream',
             Authorization: `OAuth ${token}`
         }
     })
