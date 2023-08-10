@@ -17,15 +17,15 @@ const FileItem = ({ data }: Props) => {
         if ('preview' in data) {
             console.log('dp', data.preview)
             file_service.getPreviewImg(data.preview)
-                .then(result =>{console.log(result); setUrl(result)})
+                .then(result => { console.log(result); setUrl(result) })
                 .catch(error => console.log('arror', error))
         }
     }, [])
-
+    console.log('ааURL', url)
     return (
 
         <div className='file_item'>
-            <div><img src={url} alt={data.name} width='100px' /></div>
+            <div><img src={''} alt={data.name} width='100px' /></div>
             <div className='file_item__name'>{data.name}</div>
             <div className='file_item__size'>{data.size}</div>
         </div>
