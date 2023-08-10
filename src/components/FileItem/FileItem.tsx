@@ -15,6 +15,7 @@ const FileItem = ({ data }: Props) => {
 
     useEffect(() => {
         if ('preview' in data) {
+            console.log('dp', data.preview)
             file_service.getPreviewImg(data.preview)
                 .then(result => setUrl(result))
                 .catch(error => console.log(error))

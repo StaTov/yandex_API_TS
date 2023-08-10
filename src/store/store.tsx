@@ -76,7 +76,6 @@ export default class Store {
     async getFileListMeta() {
         const data = await file_service.getAllFilesMeta()
         this.setFileListMeta(data)
-
     }
 
     async getDiskInfo() {
