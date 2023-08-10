@@ -1,6 +1,7 @@
 import { useContext } from 'react'
 import { Context } from '../..'
 import FileItem from '../FileItem/FileItem'
+import { observer } from 'mobx-react'
 
 
 const Files = () => {
@@ -19,4 +20,4 @@ const Files = () => {
 }
 
 
-export default Files
+export default observer(Files)

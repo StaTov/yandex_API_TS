@@ -70,9 +70,7 @@ export default class Store {
     }
 
     setFileListMeta = (data: []) => {
-        console.log('data', data)
         this.fileListMeta = data
-        console.log('js', data)
     }
 
     async getFileListMeta() {
