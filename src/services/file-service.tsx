@@ -16,6 +16,7 @@ const getAllFilesMeta = async () => {
     })
     if (response.ok) {
         const data = await response.json()
+        console.log('data', data)
         return data
     }
     throw new Error(`ошибка сети + ${response.status}`)
@@ -28,7 +29,7 @@ const getPreviewImg = async (url: string) => {
     }
     const response = await fetch(url, {
         headers: {
-            Accept: '*/*',
+            Accept: 'image/*',
             Authorization: `OAuth ${token}`
         }
     })
