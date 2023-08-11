@@ -20,7 +20,7 @@ const Nav = () => {
         <div className='container'>
             <nav>
                 <div className='navBox'>
-
+                    <span onClick={() => navigate('/files')} style={{ color: 'black', cursor: 'pointer' }}>O</span>
                 </div>
                 <div className='navBox'>Yandex Disk API</div>
                 <div className='navBox-right'>
