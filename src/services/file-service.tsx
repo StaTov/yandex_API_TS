@@ -16,7 +16,6 @@ const getAllFilesMeta = async () => {
     })
     if (response.ok) {
         const data = await response.json()
-        console.log('data', data)
         return data
     }
     throw new Error(`ошибка сети + ${response.status}`)
@@ -27,12 +26,11 @@ const getPreviewImg = async (url: string) => {
     if (!token) {
         throw new Error('Недостаточно прав. Необходима авторизация.')
     }
-    console.log(111)
-    console.log('url', url)
-    console.log('tok', token)
+    
+
     const response = await fetch(url, {
         headers: {
-            Accept: 'application/octet-stream',
+            Accept: '*/*',
             Authorization: `OAuth ${token}`
         }
     })

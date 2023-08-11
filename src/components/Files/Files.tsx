@@ -6,6 +6,7 @@ import { observer } from 'mobx-react'
 
 const Files = () => {
     const store = useContext(Context)
+
     if ('items' in store.fileListMeta && Array.isArray(store.fileListMeta.items)) {
         return (
             <div className="container_files">

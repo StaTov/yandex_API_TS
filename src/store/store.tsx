@@ -6,6 +6,7 @@ export default class Store {
     token: string | null = null
     isLoading = false
     fileList: FileList | File[] | null = null
+    fileListUrlImg = new Map()
     fileListMeta = {}
     arrayFileList: File[] | [] = []
     message: string | null | JSX.Element = null
@@ -16,6 +17,13 @@ export default class Store {
 
     constructor() {
         makeAutoObservable(this)
+    }
+    setImgUrl = (name: string, url: string) => {
+        this.fileListUrlImg.set(name, url)
+    }
+
+    getImgUrl = (name: string): string => {
+        return this.fileListUrlImg.get(name)
     }
 
     setToken = (token: string | null): void => {
@@ -69,13 +77,19 @@ export default class Store {
         this.usedSpace = Number((Number(value) / 1e9).toFixed(2))
     }
 
-    setFileListMeta = (data: []) => {
+    setFileListMeta = (data: object) => {
         this.fileListMeta = data
     }
 
+
+
+
+
     async getFileListMeta() {
-        const data = await file_service.getAllFilesMeta()
-        this.setFileListMeta(data)
+        const data: object = await file_service.getAllFilesMeta()
+        if (data) {
+            this.setFileListMeta(data)
+        }
     }
 
     async getDiskInfo() {
@@ -123,7 +137,4 @@ export default class Store {
         await this.getDiskInfo()
         await this.getFileListMeta()
     }
-
-
-
 }

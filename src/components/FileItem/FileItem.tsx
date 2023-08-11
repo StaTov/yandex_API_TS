@@ -1,9 +1,8 @@
 import { observer } from 'mobx-react'
 import { FileItemProps } from '../../types'
 import file_service from '../../services/file-service'
-import { useEffect, useState } from 'react'
-
-
+import { useContext, useEffect } from 'react'
+import { Context } from '../..'
 
 interface Props {
     data: FileItemProps
@@ -11,21 +10,23 @@ interface Props {
 
 const FileItem = ({ data }: Props) => {
 
-    const [url, setUrl] = useState('')
+    const store = useContext(Context)
+    const imgUrl = store.getImgUrl(data.name)
 
     useEffect(() => {
-        if ('preview' in data) {
-            console.log('dp', data.preview)
+
+        if (!imgUrl && 'preview' in data) {
             file_service.getPreviewImg(data.preview)
-                .then(result => { console.log(result); setUrl(result) })
-                .catch(error => console.log('arror', error))
+                .then(result => store.setImgUrl(data.name, result))
+                .catch(error => console.error('Ошибка промиса', error.message))
         }
-    }, [])
-    console.log('ааURL', url)
+    }, [store.fileListUrlImg])
+
+
     return (
 
         <div className='file_item'>
-            <div><img src={''} alt={data.name} width='100px' /></div>
+            <div><img src={imgUrl} alt={data.name} width='100px' /></div>
             <div className='file_item__name'>{data.name}</div>
             <div className='file_item__size'>{data.size}</div>
         </div>
