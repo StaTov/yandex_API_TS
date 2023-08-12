@@ -74,8 +74,8 @@ const DiskApi = () => {
                         </div>
                     </div>
                 </div>
+                <Notification />
             </div>
-            <Notification />
         </>
     )
 }

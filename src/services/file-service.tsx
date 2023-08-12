@@ -33,9 +33,7 @@ const getPreviewImg = async (url: string) => {
             Authorization: `OAuth ${token}`,
         }
     })
-    console.log(222)
     if (response.ok) {
-        console.log(333)
         const blob = await response.blob()
         return URL.createObjectURL(blob)
     }

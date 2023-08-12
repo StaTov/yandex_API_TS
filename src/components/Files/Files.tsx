@@ -12,7 +12,7 @@ const Files = () => {
             <div className="container_files">
                 <h3>Файлы</h3>
                 <div className='file_list'>
-                    {store.fileListMeta.items.map(i => <FileItem data={i} key={i.name}/>)}
+                    {store.fileListMeta.items.map(i => <FileItem data={i} key={i.name} />)}
                 </div>
             </div>
         )

@@ -215,30 +215,26 @@ button:-webkit-details-marker {
     flex-wrap: nowrap;
     align-items: center;
     background: linear-gradient(282deg, #b8e4ff 0%, #2b90d8);
-    width: 80vw;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    width: 90vw;
     height: max-content;
-    position: absolute;
-    bottom: 0;
-    right: 0;
+    position: fixed;
+    bottom: 0%;
+    margin: 0 auto;
     color: #fff;
     opacity: 1;
-    transition: right 1s;
-}
-
-@media only screen and (max-width: 761px) {
-    .notification_container {
-        width: 100vw;
-    }
+    transition: bottom 1s;
 }
 
 .note-hidden {
-    transition: right 1s;
-    right: -1400px;
-
+    transition: bottom 1.5s;
+    bottom: -40%;
 }
 
 .note-bar {
     align-self: stretch;
+    border-top-left-radius: 3px;
     padding: 5px;
     background-color: #fff;
 }
@@ -255,7 +251,7 @@ button:-webkit-details-marker {
     text-align: center;
     margin-right: 30px;
     padding: 4px 8px;
-    border-radius: 50%;
+    border-radius: 10%;
     background-color: #ffffff00;
     width: 32px;
     height: 30px;
